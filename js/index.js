@@ -5,17 +5,45 @@ const nav = document.querySelector("nav");
 const imgs = document.querySelectorAll("img");
 const title = document.querySelector("h1");
 const header = document.querySelector(".nav-container");
+const paragraph = document.querySelectorAll("p");
 const secret = document.querySelector("footer p");
+const subTitle = document.querySelectorAll("h2");
+const subHeader = document.querySelectorAll("h4");
+
+window.addEventListener("scroll", event => {
+  subTitle.forEach(h2 => {
+    let colors = ["Red", "Green", "Blue", "Pink", "Black"];
+    h2.style.color = colors[Math.round(Math.random() * 5)];
+  });
+});
 
 // Images
 imgs.forEach(img => {
   img.addEventListener("drag", event => {
-    let size = Math.random() * 500;
+    let size = Math.random() * 100;
     img.style.width = `${size}px`;
   });
 
   img.addEventListener("dragend", event => {
     img.style.width = `100%`;
+  });
+});
+
+// SubHeader
+subHeader.forEach(subHead => {
+  subHead.addEventListener("wheel", event => {
+    subHead.style.fontFamily = "Lato";
+  });
+});
+
+// Paragraph
+paragraph.forEach(p => {
+  p.addEventListener("mousedown", event => {
+    p.style.fontSize = "4rem";
+  });
+
+  p.addEventListener("mouseup", event => {
+    p.style.fontSize = "1.6rem";
   });
 });
 
